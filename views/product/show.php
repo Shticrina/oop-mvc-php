@@ -1,5 +1,6 @@
 <?php
-var_dump($data['product']);
+include('helpers/variables.php');
+$product = $data['product'];
 ?>
 
 <!-- HTML content -->
@@ -8,7 +9,7 @@ var_dump($data['product']);
 
 <section id="showProduct" class="container mx-auto row py-5">
     <div class="col-lg-4 col-sm-8 mx-auto text-center mb-4">
-	    <h3 class="text-center">Product name: <?php if (isset($data['product']) ? $data['product']->name : "no name"; ?></h3>
+	    <h3 class="text-center">Product name: <?php echo $product['name']; ?></h3>
 	    <hr class="bg-info">
 	</div>
 

@@ -1,7 +1,6 @@
 <?php
 
-require_once 'app/init.php';
-include('./config/db.php');
+require_once 'init.php';
 new App();
 
 ?>

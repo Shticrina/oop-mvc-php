@@ -63,11 +63,11 @@ class Product {
         return $stmt->execute();
     }
 
-    function getProduct($id, $join_table = 'categories') {
-	    $query = "SELECT * FROM $this->table_name JOIN $join_table ON $join_table.category_id = $this->table_name.category_id WHERE id = ?";
+    function getProduct($id) {
+	    $query = "SELECT * FROM $this->table_name JOIN categories ON categories.category_id = $this->table_name.category_id WHERE id = ?";
 	  
 	    $stmt = $this->conn->prepare($query);
-	    $stmt->bindParam(1, $this->id);
+	    $stmt->bindParam(1, $id);
 	    $stmt->execute();
 
 	    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);

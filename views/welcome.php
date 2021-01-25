@@ -1,5 +1,6 @@
 <?php
 // var_dump($data['products']);
+include('helpers/variables.php');
 ?>
 
 <!-- HTML content -->
@@ -61,7 +62,7 @@
 	</div>
 
 	<div class="col-12">
-		<?php include('./views/layouts/pagination.php'); ?>
+		<?php //include('./views/layouts/pagination.php'); ?>
 	</div>
 </section>
 

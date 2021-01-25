@@ -14,12 +14,7 @@ class HomeController extends Controller {
 
   		$productModel = $this->model('Product');
 	    $products = $productModel->listAll($from_record_num, $records_per_page);
-	    $this->view('home/productList', ['products' => $products, 'nb_products' => $productModel->countProducts]);
-
-	    /*$item = new stdClass();
-        $item->name = 'jon doe mine';
-        $items = [$item];
-	    $this->view('home/productList', ['items' => $items]);*/
+	    $this->view('welcome', ['products' => $products, 'nb_products' => $productModel->countProducts]);
   	}
 }
 

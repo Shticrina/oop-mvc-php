@@ -5,6 +5,13 @@ $host = 'localhost';
 $user = 'root';
 $password = '';
 $database = 'poo_db';
+
+// production
+/*$host = 'sql209.epizy.com';
+$user = 'epiz_27551591';
+$password = '7zkpRacwES';
+$database = 'epiz_27551591_oop_mvc';*/
+
 $conn = null;
 
 //Custom PDO options

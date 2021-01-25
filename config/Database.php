@@ -7,6 +7,13 @@ class Database {
 	private $user = 'root';
 	private $password = '';
 	private $database = 'poo_db';
+
+	// production
+	/*private $host = 'sql209.epizy.com';
+	private $user = 'epiz_27551591';
+	private $password = '7zkpRacwES';
+	private $database = 'epiz_27551591_oop_mvc';*/
+	
 	private $conn;
 
 	public function getConnection() {

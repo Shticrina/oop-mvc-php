@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php //echo $page_title; ?>mytitle</title>
+    <title><?php echo isset($page_title) ? $page_title : 'page'; ?></title>
 
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/2d566fa444.js" crossorigin="anonymous"></script>
@@ -20,9 +20,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
     
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css">
-    <link rel="stylesheet" type="text/css" href="<?php //echo $root; ?>./assets/css/style.css">
-    
+    <!-- <link rel="stylesheet" type="text/css" href="https://yarnpkg.com/en/package/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>/assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $root; ?>/assets/css/style.css">
 </head>
 
 <body>

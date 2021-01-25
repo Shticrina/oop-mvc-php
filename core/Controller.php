@@ -8,8 +8,8 @@ class Controller {
   		$database = new Database();
 		$conn = $database->getConnection();
 
-		if (file_exists('app/models/' . $model . '.php')) {
-		  	require_once 'app/models/' . $model . '.php';
+		if (file_exists('models/' . $model . '.php')) {
+		  	require_once 'models/' . $model . '.php';
 		  	return new $model($conn);
 		} else {
 		  	return null;

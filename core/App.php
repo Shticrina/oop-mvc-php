@@ -5,28 +5,34 @@ class App {
 	public $controller = 'HomeController';
 	public $method = 'index';
 	public $params = [];
+	// default route: HomeController, method index, no params
 
 	public function __construct() {
 		$url = $this->parseURL();
-		// var_dump($url);// null
+		// var_dump($url); // null
 
-		if (file_exists('app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
+		if (file_exists('controllers/' . ucfirst($url[0]) . 'Controller.php')) {
 			$this->controller = ucfirst($url[0]) . 'Controller';
 			unset($url[0]);
+		} elseif ($url != null) {
+			$this->controller = 'NotfoundController';
 		}
 
-		var_dump($this->controller); // ProductController
-		require_once 'app/controllers/' . $this->controller . '.php';
+		// var_dump($this->controller); // ProductController, ok
+		require_once 'controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller();
 
 		if (isset($url[1])) {
 			if (method_exists($this->controller, $url[1])) {
 				$this->method = $url[1];
 				unset($url[1]);
+			} else {
+				$this->method = 'notFound';
 			}
 		}
 
 		$this->params = $url ? array_values($url) : [];
+		// var_dump($this->method);
 		// var_dump($this->params); // empty
 
 		call_user_func_array([$this->controller, $this->method], $this->params);
@@ -34,8 +40,7 @@ class App {
 
 	private function parseUrl() {
 		if (isset($_GET['url'])) {
-			// return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
-			return $url = explode($_GET['url']);
+			return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
 		}
 	}
 }
