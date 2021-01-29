@@ -5,7 +5,7 @@ include('config/Database.php');
 class Controller {
 
   	protected function model($model) {
-  		$database = new Database();
+  		$database = new Database($_ENV["DB_HOST"], $_ENV["DB_USER"], $_ENV["DB_PASSWORD"], $_ENV["DB_NAME"]);
 		$conn = $database->getConnection();
 
 		if (file_exists('models/' . $model . '.php')) {

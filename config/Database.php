@@ -3,18 +3,18 @@
 class Database {
 
 	// MySQL DB connection details
-	private $host = 'localhost';
-	private $user = 'root';
-	private $password = '';
-	private $database = 'poo_db';
-
-	// production
-	/*private $host = 'sql209.epizy.com';
-	private $user = 'epiz_27551591';
-	private $password = '7zkpRacwES';
-	private $database = 'epiz_27551591_oop_mvc';*/
-	
+	private $host;
+	private $user;
+	private $password;
+	private $database;
 	private $conn;
+
+	public function __construct($host, $user, $password, $database) {
+        $this->host = $host;
+        $this->user = $user;
+        $this->password = $password;
+        $this->database = $database;
+    }
 
 	public function getConnection() {
 		$this->conn = null;
